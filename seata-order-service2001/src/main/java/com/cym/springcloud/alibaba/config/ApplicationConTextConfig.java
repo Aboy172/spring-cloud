@@ -45,6 +45,11 @@ public class ApplicationConTextConfig {
     return dataSource;
   }
 
+  /**
+   * 优先注入代理数据源，然后再设置数据源的具体信息，也就是上面
+   * @param dataSource 数据源
+   * @return 返回数据源代理对象
+   */
   @Primary
   @Bean
   public DataSourceProxy dataSource(DataSource dataSource) {
