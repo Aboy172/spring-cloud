@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cym.springcloud.alibaba.mapper.OrderMapper">
+
+    <resultMap id="BaseResultMap" type="com.cym.springcloud.alibaba.domain.Order">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="userId" column="user_id" jdbcType="BIGINT"/>
+            <result property="productId" column="product_id" jdbcType="BIGINT"/>
+            <result property="count" column="count" jdbcType="INTEGER"/>
+            <result property="money" column="money" jdbcType="DECIMAL"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,product_id,
+        count,money,status
+    </sql>
+
+  <update id="updateOrder">
+    update t_order set status = 1 where user_id = #{userId} and status = #{status}
+  </update>
+  <!--  void createOrder(Order order);-->
+  <insert id="createOrder">
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">id,</if>
+      <if test="userId != null">user_id,</if>
+      <if test="productId != null">product_id,</if>
+      <if test="count != null">count,</if>
+      <if test="money != null">money,</if>
+      status
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">#{id,jdbcType=BIGINT},</if>
+      <if test="userId != null">#{userId,jdbcType=BIGINT},</if>
+      <if test="productId != null">#{productId,jdbcType=BIGINT},</if>
+      <if test="count != null">#{count,jdbcType=INTEGER},</if>
+      <if test="money != null">#{money,jdbcType=DECIMAL},</if>
+      0
+    </trim>
+  </insert>
+
+</mapper>

@@ -1,0 +1,41 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: payment_routh
+          uri: lb://cloud-provider-payment
+          predicates:
+            - Path=/payment/get/**
+            - After=2022-05-10T17:00:05.679+08:00[Asia/Shanghai]
+
+        - id: payment_routh2
+          uri: lb://cloud-provider-payment
+          predicates:
+            - Path=/payment/lb/**
+#            - Cookie=username,cym
+#            - Header=X-Request-Id, \d+
+#            - Query=username, \d+
+#            - Host=com.cym
+        - id: baidu_routh
+          uri: http://news.baidu.com/
+          #断言，路径相匹配进行路由，意思就是客户端传入路径地址的是否跟下面配置的一样，一样就走上面的路由地址+断言内容
+          predicates:
+              - Path=/
+
+
+eureka:
+  instance:
+    hostname: cloud-gateway-service
+  client:
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://eureka7001.com:7001/eureka/

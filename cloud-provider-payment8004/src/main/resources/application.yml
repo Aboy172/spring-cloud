@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: cloud-provider-payment
+  cloud:
+    zookeeper:
+      connect-string: aliyun:2181
+
+server:
+  port: 8004
+
+

@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      #服务中心注册地址
+      discovery:
+        server-addr: aliyun:8848
+      #配置中心地址
+      config:
+        server-addr: aliyun:8848
+        #指定yaml格式文件
+        file-extension: yaml
+        group: DEV_GROUP
+        namespace: 9d3ad3cb-511f-4e94-878b-c74703970ffb
+
+server:
+  port: 3377

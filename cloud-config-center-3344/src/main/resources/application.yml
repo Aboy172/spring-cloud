@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: cloud-config-center
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    config:
+      server:
+        git:
+          # git仓库地址
+          uri: https://gitee.com/cymzn/springcloud-config.git
+          search-paths:
+            - springcloud-config
+          username: CYMzn
+          password: my159357
+          default-label: master
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'busrefresh'
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+server:
+  port: 3344

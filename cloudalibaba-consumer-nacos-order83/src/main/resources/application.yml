@@ -1,0 +1,21 @@
+server:
+  port: 83
+spring:
+  application:
+    name: nacos-order-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+feign:
+  client:
+    config:
+      default:
+        #连接时间为1秒
+        connectTimeout: 1000
+        #读取超时时间为3秒
+        read-timeout: 3000
+service-url:
+  nacos-user-service: http://nacos-payment-provider
+
+
