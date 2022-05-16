@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: cloud-consumerzk-oreder
+  cloud:
+    zookeeper:
+      connect-string: aliyun:2181
+
+server:
+  port: 80
