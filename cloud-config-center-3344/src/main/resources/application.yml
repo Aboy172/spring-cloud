@@ -14,8 +14,8 @@ spring:
           uri: https://gitee.com/cymzn/springcloud-config.git
           search-paths:
             - springcloud-config
-          username: CYMzn
-          password: my159357
+          username: 
+          password: 
           default-label: master
 management:
   endpoints:
