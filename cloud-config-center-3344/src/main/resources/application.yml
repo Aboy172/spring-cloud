@@ -14,9 +14,9 @@ spring:
           uri: https://gitee.com/cymzn/springcloud-config.git
           search-paths:
             - springcloud-config
-          username: 
-          password: 
-          default-label: master
+          username: #输入自己账号的用户名
+          password: #输入自己账号的密码
+          default-label: master #选择自己的分支，默认为main，我改成了master，以自己的为准
 management:
   endpoints:
     web:
