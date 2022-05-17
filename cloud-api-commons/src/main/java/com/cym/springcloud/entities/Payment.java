@@ -6,6 +6,7 @@ import lombok.Data;
 
 /**
  * 
+ * @author cym
  * @TableName payment
  */
 @Data
